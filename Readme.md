@@ -1,6 +1,4 @@
-# Ring
-
-Repository for the source code of the engine presented in the paper Worst-case Optimal Graph Joins in Almost No Space.
+# CLTSJ
 
 ## Instructions
 
