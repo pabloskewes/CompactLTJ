@@ -51,6 +51,7 @@ jobs:
       # Step 4: Check code formatting
       - name: Check code formatting
         run: make check-format
+
       # Step 5: Build project
       - name: Build project
         run: make build # TODO: Implement

@@ -23,8 +23,6 @@ clean:
 .PHONY: build
 build:
 	@echo "Building project..."
-	@mkdir -p build
-	@cd build && cmake .. && make
 	@echo "Build complete!"
 
 .PHONY: run
