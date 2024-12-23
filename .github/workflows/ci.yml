@@ -16,7 +16,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Cache dependencies
+      # Step 2: Cache CMake and build outputs
       - name: Cache CMake and build outputs
         uses: actions/cache@v3
         with:
@@ -27,17 +27,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cmake-
 
-      - name: Cache clang-format
-        uses: actions/cache@v3
-        with:
-          path: |
-            /usr/bin/clang-format
-          key: ${{ runner.os }}-clang-format-19.1.6-${{ hashFiles('.clang-format') }}
-          restore-keys: |
-            ${{ runner.os }}-clang-format-
-
-      # Step 3: Install specific clang-format version
-      - name: Install clang-format 19.1.6
+      # Step 3: Install dependencies
+      - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y build-essential cmake
