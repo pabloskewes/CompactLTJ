@@ -1,0 +1,58 @@
+# --- General ---
+*.log
+*.tmp
+*.swp
+*.bak
+*.swo
+
+# --- C++ Specific ---
+*.o
+*.obj
+*.so
+*.a
+*.lib
+*.dll
+*.exe
+*.out
+
+# --- CMake ---
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+build/
+
+# --- IDEs and Editors ---
+# VS Code
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs (CLion, etc.)
+.idea/
+*.iml
+
+# Xcode
+*.xcworkspace
+*.xcuserstate
+*.xcodeproj
+
+# --- macOS ---
+.DS_Store
+
+# --- Tools ---
+*_backup.cpp
+
+# --- Logs and Debug ---
+*.dSYM/
+*.stackdump
+
+# --- Python Bindings (if any) ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Miscellaneous ---
+*.~*
+*~
+*#*
+.cache/
