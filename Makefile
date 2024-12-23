@@ -1,4 +1,4 @@
-SRC_FILES := $(shell find . -name "*.cpp" -o -name "*.h")
+SRC_FILES := $(shell find . -name "*.cpp" -o -name "*.h" -o -name "*.hpp")
 
 # Target: Format all source files using clang-format
 .PHONY: format

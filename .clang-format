@@ -1,3 +1,6 @@
-BasedOnStyle: Google
-IndentWidth: 4
-ColumnLimit: 80
+BasedOnStyle: llvm
+AlignAfterOpenBracket: BlockIndent
+BreakBeforeBraces: Attach
+AllowAllParametersOfDeclarationOnNextLine: false
+BinPackParameters: false
+PenaltyBreakBeforeFirstCallParameter: 0
