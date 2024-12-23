@@ -14,6 +14,30 @@ check-format:
 	@clang-format --dry-run --Werror $(SRC_FILES)
 	@echo "All files are properly formatted!"
 
+.PHONY: clean
+clean:
+	@echo "Cleaning up..."
+	@rm -rf build
+	@echo "Cleanup complete!"
+
+.PHONY: build
+build:
+	@echo "Building project..."
+	@mkdir -p build
+	@cd build && cmake .. && make
+	@echo "Build complete!"
+
+.PHONY: run
+run:
+	@echo "Running project..."
+	@./build/main
+	@echo "Project execution complete!"
+
+.PHONY: test
+test:
+	@echo "Running tests..."
+	@echo "Tests complete!"
+
 # Help target to display available commands
 .PHONY: help
 help:

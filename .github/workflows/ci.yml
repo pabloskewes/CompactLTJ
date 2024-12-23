@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  ci:
+    name: Continuous Integration
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Cache dependencies
+      - name: Cache CMake and build outputs
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cmake
+            build/
+          key: ${{ runner.os }}-cmake-${{ hashFiles('**/CMakeLists.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-cmake-
+
+      - name: Cache clang-format
+        uses: actions/cache@v3
+        with:
+          path: |
+            /usr/bin/clang-format
+          key: ${{ runner.os }}-clang-format-${{ hashFiles('.clang-format') }}
+          restore-keys: |
+            ${{ runner.os }}-clang-format-
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang-format build-essential cmake
+
+      # Step 4: Check code formatting
+      - name: Check code formatting
+        run: make check-format
+
+      # Step 5: Build project
+      - name: Build project
+        run: make build # Replace with your actual make target for building
+
+      # Step 6: Run tests
+      - name: Run tests
+        run: make test # Replace with your actual make target for testing
