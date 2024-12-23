@@ -32,24 +32,29 @@ jobs:
         with:
           path: |
             /usr/bin/clang-format
-          key: ${{ runner.os }}-clang-format-${{ hashFiles('.clang-format') }}
+          key: ${{ runner.os }}-clang-format-19.1.6-${{ hashFiles('.clang-format') }}
           restore-keys: |
             ${{ runner.os }}-clang-format-
 
-      # Step 3: Install dependencies
-      - name: Install dependencies
+      # Step 3: Install specific clang-format version
+      - name: Install clang-format 19.1.6
         run: |
           sudo apt-get update
-          sudo apt-get install -y clang-format build-essential cmake
+          sudo apt-get install -y build-essential cmake
+          wget https://apt.llvm.org/llvm.sh
+          chmod +x llvm.sh
+          sudo ./llvm.sh 19
+          sudo apt-get install -y clang-format-19
+          sudo ln -sf /usr/bin/clang-format-19 /usr/bin/clang-format
+          clang-format --version  # Verify version
 
       # Step 4: Check code formatting
       - name: Check code formatting
         run: make check-format
-
       # Step 5: Build project
       - name: Build project
-        run: make build # Replace with your actual make target for building
+        run: make build # TODO: Implement
 
       # Step 6: Run tests
       - name: Run tests
-        run: make test # Replace with your actual make target for testing
+        run: make test # TODO: Implement
