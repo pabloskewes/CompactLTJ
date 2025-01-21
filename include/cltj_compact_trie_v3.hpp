@@ -58,10 +58,14 @@ public:
   }
 
   //! Copy constructor
-  compact_trie_v3(const compact_trie_v3 &o) { copy(o); }
+  compact_trie_v3(const compact_trie_v3 &o) {
+    copy(o);
+  }
 
   //! Move constructor
-  compact_trie_v3(compact_trie_v3 &&o) { *this = std::move(o); }
+  compact_trie_v3(compact_trie_v3 &&o) {
+    *this = std::move(o);
+  }
 
   //! Copy Operator=
   compact_trie_v3 &operator=(const compact_trie_v3 &o) {
@@ -101,7 +105,9 @@ public:
       Degree of the trie root
   */
 
-  size_type root_degree() { return m_root_degree; }
+  size_type root_degree() {
+    return m_root_degree;
+  }
 
   /*
       Receives index of current node and the child that is required
@@ -115,11 +121,17 @@ public:
       Receives index of node whos children we want to count
       Returns how many children said node has
   */
-  size_type children(size_type i) const { return m_succ0(i + 1) - i; }
+  size_type children(size_type i) const {
+    return m_succ0(i + 1) - i;
+  }
 
-  size_type first_child(size_type i) const { return i; }
+  size_type first_child(size_type i) const {
+    return i;
+  }
 
-  inline size_type nodeselect(size_type i) const { return m_select0(i + 2); }
+  inline size_type nodeselect(size_type i) const {
+    return m_select0(i + 2);
+  }
 
   pair<uint32_t, uint32_t>
   binary_search_seek(uint32_t val, uint32_t i, uint32_t f) const {

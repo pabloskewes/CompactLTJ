@@ -64,11 +64,17 @@ struct triple_pattern {
     term_p.value = p;
   }
 
-  bool s_is_variable() const { return term_s.is_variable; }
+  bool s_is_variable() const {
+    return term_s.is_variable;
+  }
 
-  bool p_is_variable() const { return term_p.is_variable; }
+  bool p_is_variable() const {
+    return term_p.is_variable;
+  }
 
-  bool o_is_variable() const { return term_o.is_variable; }
+  bool o_is_variable() const {
+    return term_o.is_variable;
+  }
 
   void print(std::unordered_map<uint8_t, std::string> &ht) const {
     if (s_is_variable()) {

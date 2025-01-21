@@ -29,22 +29,32 @@ private:
   }
 
 public:
-  results_collector() { m_results = new value_type[buckets]; }
+  results_collector() {
+    m_results = new value_type[buckets];
+  }
 
-  ~results_collector() { delete[] m_results; }
+  ~results_collector() {
+    delete[] m_results;
+  }
 
   inline void add(const value_type &val) {
     m_results[(m_cnt & (buckets - 1))] = val;
     ++m_cnt;
   }
 
-  inline size_type size() { return m_cnt; }
+  inline size_type size() {
+    return m_cnt;
+  }
 
   //! Copy constructor
-  results_collector(const results_collector &o) { copy(o); }
+  results_collector(const results_collector &o) {
+    copy(o);
+  }
 
   //! Move constructor
-  results_collector(results_collector &&o) { *this = std::move(o); }
+  results_collector(results_collector &&o) {
+    *this = std::move(o);
+  }
 
   //! Copy Operator=
   results_collector &operator=(const results_collector &o) {

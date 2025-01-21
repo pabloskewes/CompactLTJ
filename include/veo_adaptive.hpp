@@ -193,10 +193,14 @@ public:
   }
 
   //! Copy constructor
-  veo_adaptive(const veo_adaptive &o) { copy(o); }
+  veo_adaptive(const veo_adaptive &o) {
+    copy(o);
+  }
 
   //! Move constructor
-  veo_adaptive(veo_adaptive &&o) { *this = move(o); }
+  veo_adaptive(veo_adaptive &&o) {
+    *this = move(o);
+  }
 
   //! Copy Operator=
   veo_adaptive &operator=(const veo_adaptive &o) {
@@ -326,9 +330,13 @@ public:
     }
   }
 
-  inline size_type size() { return m_var_info.size() + m_lonely.size(); }
+  inline size_type size() {
+    return m_var_info.size() + m_lonely.size();
+  }
 
-  inline size_type nolonely_size() { return m_var_info.size(); }
+  inline size_type nolonely_size() {
+    return m_var_info.size();
+  }
 };
 }; // namespace veo
 } // namespace ltj

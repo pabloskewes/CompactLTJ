@@ -238,10 +238,14 @@ public:
   }
 
   //! Copy constructor
-  veo_simple(const veo_simple &o) { copy(o); }
+  veo_simple(const veo_simple &o) {
+    copy(o);
+  }
 
   //! Move constructor
-  veo_simple(veo_simple &&o) { *this = move(o); }
+  veo_simple(veo_simple &&o) {
+    *this = move(o);
+  }
 
   //! Copy Operator=
   veo_simple &operator=(const veo_simple &o) {
@@ -286,11 +290,17 @@ public:
     // --m_index;
   };
 
-  inline void done() { --m_index; };
+  inline void done() {
+    --m_index;
+  };
 
-  inline size_type size() { return m_order.size(); }
+  inline size_type size() {
+    return m_order.size();
+  }
 
-  inline size_type nolonely_size() { return m_nolonely_size; }
+  inline size_type nolonely_size() {
+    return m_nolonely_size;
+  }
 };
 }; // namespace veo
 } // namespace ltj

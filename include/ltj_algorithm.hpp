@@ -116,10 +116,14 @@ public:
   }
 
   //! Copy constructor
-  ltj_algorithm(const ltj_algorithm &o) { copy(o); }
+  ltj_algorithm(const ltj_algorithm &o) {
+    copy(o);
+  }
 
   //! Move constructor
-  ltj_algorithm(ltj_algorithm &&o) { *this = move(o); }
+  ltj_algorithm(ltj_algorithm &&o) {
+    *this = move(o);
+  }
 
   //! Copy Operator=
   ltj_algorithm &operator=(const ltj_algorithm &o) {

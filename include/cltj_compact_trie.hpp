@@ -32,7 +32,9 @@ private:
     m_select0.set_vector(&m_bv);
   }
 
-  inline size_type rank0(const size_type i) const { return i - m_rank1(i); }
+  inline size_type rank0(const size_type i) const {
+    return i - m_rank1(i);
+  }
 
 public:
   const sdsl::int_vector<> &seq = m_seq;
@@ -79,10 +81,14 @@ public:
   }
 
   //! Copy constructor
-  compact_trie(const compact_trie &o) { copy(o); }
+  compact_trie(const compact_trie &o) {
+    copy(o);
+  }
 
   //! Move constructor
-  compact_trie(compact_trie &&o) { *this = std::move(o); }
+  compact_trie(compact_trie &&o) {
+    *this = std::move(o);
+  }
 
   //! Copy Operator=
   compact_trie &operator=(const compact_trie &o) {
@@ -118,7 +124,9 @@ public:
       Receives index in bit vector
       Returns index of next 0
   */
-  uint32_t succ0(uint32_t it) { return m_select0(rank0(it) + 1); }
+  uint32_t succ0(uint32_t it) {
+    return m_select0(rank0(it) + 1);
+  }
 
   /*
       Receives index of current node and the child that is required
@@ -132,9 +140,13 @@ public:
       Receives index of node whos children we want to count
       Returns how many children said node has
   */
-  uint32_t childrenCount(uint32_t it) { return succ0(it) - it; }
+  uint32_t childrenCount(uint32_t it) {
+    return succ0(it) - it;
+  }
 
-  inline size_type nodemap(size_type i) const { return rank0(i) - 2; }
+  inline size_type nodemap(size_type i) const {
+    return rank0(i) - 2;
+  }
 
   inline size_type nodeselect(size_type i) const {
     return m_select0(i + 2) + 1;

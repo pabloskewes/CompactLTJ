@@ -27,7 +27,9 @@ const static spo_orders_type spo_orders = {
 
 struct comparator_order {
   uint64_t i;
-  comparator_order(uint64_t pi) { i = pi; };
+  comparator_order(uint64_t pi) {
+    i = pi;
+  };
   inline bool operator()(const spo_triple &t1, const spo_triple &t2) {
     if (t1[spo_orders[i][0]] == t2[spo_orders[i][0]]) {
       if (t1[spo_orders[i][1]] == t2[spo_orders[i][1]]) {

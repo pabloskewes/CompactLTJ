@@ -114,10 +114,14 @@ public:
   }
 
   //! Copy constructor
-  cltj_metatrie(const cltj_metatrie &o) { copy(o); }
+  cltj_metatrie(const cltj_metatrie &o) {
+    copy(o);
+  }
 
   //! Move constructor
-  cltj_metatrie(cltj_metatrie &&o) { *this = std::move(o); }
+  cltj_metatrie(cltj_metatrie &&o) {
+    *this = std::move(o);
+  }
 
   //! Copy Operator=
   cltj_metatrie &operator=(const cltj_metatrie &o) {

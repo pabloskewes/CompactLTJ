@@ -40,7 +40,9 @@ private:
     return root;
   }
 
-  void copy(const cltj_index_spo &o) { m_tries = o.m_tries; }
+  void copy(const cltj_index_spo &o) {
+    m_tries = o.m_tries;
+  }
 
 public:
   const std::array<trie_type, 6> &tries = m_tries;
@@ -56,10 +58,14 @@ public:
   }
 
   //! Copy constructor
-  cltj_index_spo(const cltj_index_spo &o) { copy(o); }
+  cltj_index_spo(const cltj_index_spo &o) {
+    copy(o);
+  }
 
   //! Move constructor
-  cltj_index_spo(cltj_index_spo &&o) { *this = std::move(o); }
+  cltj_index_spo(cltj_index_spo &&o) {
+    *this = std::move(o);
+  }
 
   //! Copy Operator=
   cltj_index_spo &operator=(const cltj_index_spo &o) {
@@ -83,7 +89,9 @@ public:
     std::swap(m_tries, o.m_tries);
   }
 
-  inline trie_type *get_trie(size_type i) { return &m_tries[i]; }
+  inline trie_type *get_trie(size_type i) {
+    return &m_tries[i];
+  }
 
   size_type serialize(
       std::ostream &out,

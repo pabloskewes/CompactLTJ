@@ -107,9 +107,13 @@ public:
     // sdsl::util::bit_compress(m_basic_blocks);
   }
 
-  succ_support_v(const succ_support_v &p) { copy(p); };
+  succ_support_v(const succ_support_v &p) {
+    copy(p);
+  };
 
-  succ_support_v(succ_support_v &&p) { *this = std::move(p); };
+  succ_support_v(succ_support_v &&p) {
+    *this = std::move(p);
+  };
 
   succ_support_v &operator=(const succ_support_v &p) {
     if (this != &p) {
@@ -137,11 +141,17 @@ public:
 
   uint64_t succ(const size_type idx) const;
 
-  inline uint64_t operator()(const size_type idx) const { return succ(idx); }
+  inline uint64_t operator()(const size_type idx) const {
+    return succ(idx);
+  }
 
-  size_type size() const { return m_v->size(); }
+  size_type size() const {
+    return m_v->size();
+  }
 
-  void set_vector(const sdsl::bit_vector *v = nullptr) { m_v = v; }
+  void set_vector(const sdsl::bit_vector *v = nullptr) {
+    m_v = v;
+  }
 
   void swap(succ_support_v &ps) {
     if (this != &ps) { // if rs and _this_ are not the same object

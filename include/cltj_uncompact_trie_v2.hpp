@@ -78,10 +78,14 @@ public:
   }
 
   //! Copy constructor
-  uncompact_trie_v2(const uncompact_trie_v2 &o) { copy(o); }
+  uncompact_trie_v2(const uncompact_trie_v2 &o) {
+    copy(o);
+  }
 
   //! Move constructor
-  uncompact_trie_v2(uncompact_trie_v2 &&o) { *this = std::move(o); }
+  uncompact_trie_v2(uncompact_trie_v2 &&o) {
+    *this = std::move(o);
+  }
 
   //! Copy Operator=
   uncompact_trie_v2 &operator=(const uncompact_trie_v2 &o) {
@@ -135,7 +139,9 @@ public:
     return children(1); // OJO, revisar que no sea 0 en lugar de 1
   }
 
-  inline size_type first_child(size_type i) const { return m_ptr[i]; }
+  inline size_type first_child(size_type i) const {
+    return m_ptr[i];
+  }
 
   inline size_type nodeselect(size_type i) const {
     // std::cout << "i: " << i << "nodeselect: " << m_ptr[i] << std::endl;

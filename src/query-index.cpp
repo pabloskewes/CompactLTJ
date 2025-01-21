@@ -63,7 +63,9 @@ std::string rtrim(const std::string &s) {
   return (end == std::string::npos) ? "" : s.substr(0, end + 1);
 }
 
-std::string trim(const std::string &s) { return rtrim(ltrim(s)); }
+std::string trim(const std::string &s) {
+  return rtrim(ltrim(s));
+}
 
 std::vector<std::string>
 tokenizer(const std::string &input, const char &delimiter) {
@@ -76,7 +78,9 @@ tokenizer(const std::string &input, const char &delimiter) {
   return res;
 }
 
-bool is_variable(string &s) { return (s.at(0) == '?'); }
+bool is_variable(string &s) {
+  return (s.at(0) == '?');
+}
 
 uint8_t get_variable(
     string &s,
@@ -93,7 +97,9 @@ uint8_t get_variable(
   }
 }
 
-uint64_t get_constant(string &s) { return std::stoull(s); }
+uint64_t get_constant(string &s) {
+  return std::stoull(s);
+}
 
 ltj::triple_pattern get_triple(
     string &s,

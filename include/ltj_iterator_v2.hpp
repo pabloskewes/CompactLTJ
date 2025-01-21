@@ -208,7 +208,9 @@ public:
     return m_ptr_triple_pattern->term_o.is_variable &&
            var == m_ptr_triple_pattern->term_o.value;
   }
-  inline const bool is_empty() { return m_is_empty; }
+  inline const bool is_empty() {
+    return m_is_empty;
+  }
 
   inline size_type parent() const;
 
@@ -242,10 +244,14 @@ public:
     return m_ptr_triple_pattern;
   }
   //! Copy constructor
-  ltj_iterator_v2(const ltj_iterator_v2 &o) { copy(o); }
+  ltj_iterator_v2(const ltj_iterator_v2 &o) {
+    copy(o);
+  }
 
   //! Move constructor
-  ltj_iterator_v2(ltj_iterator_v2 &&o) { *this = std::move(o); }
+  ltj_iterator_v2(ltj_iterator_v2 &&o) {
+    *this = std::move(o);
+  }
 
   //! Copy Operator=
   ltj_iterator_v2 &operator=(const ltj_iterator_v2 &o) {
@@ -312,7 +318,9 @@ public:
     }
   }
 
-  void leap_done() { m_redo[m_nfixed] = true; }
+  void leap_done() {
+    m_redo[m_nfixed] = true;
+  }
 
   void down(var_type var, value_type c) { // Go down in the trie
     m_path_label[m_nfixed] = c;           // keep the current path label
@@ -445,7 +453,9 @@ public:
     return value;
   }
 
-  bool in_last_level() { return m_nfixed == 2; }
+  bool in_last_level() {
+    return m_nfixed == 2;
+  }
 
   inline size_type children(state_type state) const {
     size_type t_i, s_i = 0;
