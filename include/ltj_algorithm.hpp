@@ -161,10 +161,11 @@ public:
    * @param limit_results     Limit of results
    * @param timeout_seconds   Timeout in seconds
    */
-  void join(/*vector<tuple_type> &res,*/
-            results_type &res,
-            const size_type limit_results = 0,
-            const size_type timeout_seconds = 0
+  void join(
+      /*vector<tuple_type> &res,*/
+      results_type &res,
+      const size_type limit_results = 0,
+      const size_type timeout_seconds = 0
   ) {
     if (m_is_empty)
       return;
