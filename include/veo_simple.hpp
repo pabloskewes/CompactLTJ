@@ -244,7 +244,7 @@ public:
 
   //! Move constructor
   veo_simple(veo_simple &&o) {
-    *this = move(o);
+    *this = std::move(o);
   }
 
   //! Copy Operator=
@@ -258,10 +258,10 @@ public:
   //! Move Operator=
   veo_simple &operator=(veo_simple &&o) {
     if (this != &o) {
-      m_ptr_triple_patterns = move(o.m_ptr_triple_patterns);
-      m_ptr_iterators = move(o.m_ptr_iterators);
+      m_ptr_triple_patterns = std::move(o.m_ptr_triple_patterns);
+      m_ptr_iterators = std::move(o.m_ptr_iterators);
       m_ptr_ring = o.m_ptr_ring;
-      m_order = move(o.m_order);
+      m_order = std::move(o.m_order);
       m_index = o.m_index;
       m_nolonely_size = o.m_nolonely_size;
     }

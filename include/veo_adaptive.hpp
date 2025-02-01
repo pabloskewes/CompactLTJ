@@ -199,7 +199,7 @@ public:
 
   //! Move constructor
   veo_adaptive(veo_adaptive &&o) {
-    *this = move(o);
+    *this = std::move(o);
   }
 
   //! Copy Operator=
@@ -213,17 +213,17 @@ public:
   //! Move Operator=
   veo_adaptive &operator=(veo_adaptive &&o) {
     if (this != &o) {
-      m_ptr_triple_patterns = move(o.m_ptr_triple_patterns);
-      m_ptr_iterators = move(o.m_ptr_iterators);
-      m_ptr_ring = move(o.m_ptr_ring);
+      m_ptr_triple_patterns = std::move(o.m_ptr_triple_patterns);
+      m_ptr_iterators = std::move(o.m_ptr_iterators);
       m_ptr_var_iterators = o.m_ptr_var_iterators;
-      m_hash_table_position = move(o.m_hash_table_position);
-      m_lonely = move(o.m_lonely);
+      m_ptr_ring = std::move(o.m_ptr_ring);
+      m_hash_table_position = std::move(o.m_hash_table_position);
+      m_lonely = std::move(o.m_lonely);
       m_index = o.m_index;
-      m_bound = move(o.m_bound);
-      m_versions = move(o.m_versions);
-      m_var_info = move(o.m_var_info);
-      m_not_bound = move(o.m_not_bound);
+      m_bound = std::move(o.m_bound);
+      m_versions = std::move(o.m_versions);
+      m_var_info = std::move(o.m_var_info);
+      m_not_bound = std::move(o.m_not_bound);
     }
     return *this;
   }
