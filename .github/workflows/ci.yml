@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  ci:
+    name: Continuous Integration
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Cache CMake and build outputs
+      - name: Cache CMake and build outputs
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cmake
+            build/
+          key: ${{ runner.os }}-cmake-${{ hashFiles('**/CMakeLists.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-cmake-
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential cmake
+          wget https://apt.llvm.org/llvm.sh
+          chmod +x llvm.sh
+          sudo ./llvm.sh 19
+          sudo apt-get install -y clang-format-19
+          sudo ln -sf /usr/bin/clang-format-19 /usr/bin/clang-format
+          clang-format --version  # Verify version
+
+      # Step 4: Check code formatting
+      - name: Check code formatting
+        run: make check-format
+
+      # Step 5: Build project
+      - name: Build project
+        run: make build # TODO: Implement
+
+      # Step 6: Run tests
+      - name: Run tests
+        run: make test # TODO: Implement
